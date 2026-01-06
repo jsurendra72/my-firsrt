@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShopKart | E-Commerce</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f3f6;
+}
+
+/* NAVBAR */
+nav {
+    background: #2874f0;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECTION */
+section {
+    padding: 30px;
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+/* BANNER */
+.banner {
+    background: linear-gradient(to right, #2874f0, #42a5f5);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* PRODUCT GRID */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: whitesmoke;
+    padding: 19px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* LOGIN */
+.login-box {
+    max-width: 300px;
+    margin: auto;
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    background: green;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #172337;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div><b>ShopKart</b></div>
+    <div>
+        <a href="#" onclick="show('home')">Home</a>
+        <a href="#" onclick="show('login')">Login</a>
+        <a href="#" onclick="show('fashion')">Fashion</a>
+        <a href="#" onclick="show('mobiles')">Mobiles</a>
+        <a href="#" onclick="show('electronics')">Electronics</a>
+        <a href="#" onclick="show('tv')">TV & Appliances</a>
+        <a href="#" onclick="show('homefurniture')">Home</a>
+        <a href="#" onclick="show('contact')">Contact</a>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+    <div class="banner">
+        <h1>Big Billion Deals 🎉</h1>
+        <p>Best offers for festival</p>
+    </div>
+
+    <h2>Featured Products</h2>
+    <div class="products">
+        <div class="card">Smartphone</div>
+        <div class="card">Laptop</div>
+        <div class="card">Headphones</div>
+        <div class="card">Shoes</div>
+    </div>
+</section>
+
+<!-- LOGIN -->
+<section id="login">
+    <div class="login-box">
+        <h2>Login</h2>
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="msg"></p>
+    </div>
+</section>
+
+<!-- FASHION -->
+<section id="fashion">
+    <h2>Fashion</h2>
+    <div class="products">
+        <div class="card">Men</div>
+        <div class="card">Women</div>
+        <div class="card">Footwear</div>
+        <div class="card">Accessories</div>
+    </div>
+</section>
+
+<!-- MOBILES -->
+<section id="mobiles">
+    <h2>Mobiles & Tablets</h2>
+    <div class="products">
+        <div class="card">iPhone</div>
+        <div class="card">Samsung</div>
+        <div class="card">OnePlus</div>
+        <div class="card">Tablets</div>
+        <div class="card">IQ</div>
+    </div>
+</section>
+
+<!-- ELECTRONICS -->
+<section id="electronics">
+    <h2>Electronics</h2>
+    <div class="products">
+        <div class="card">Laptop</div>
+        <div class="card">Camera</div>
+        <div class="card">Smart Watch</div>
+        <div class="card">Speakers</div>
+        <div class="card">fan</div>
+    </div>
+</section>
+
+<!-- TV -->
+<section id="tv">
+    <h2>TV & Appliances</h2>
+    <div class="products">
+        <div class="card">Television</div>
+        <div class="card">Refrigerator</div>
+        <div class="card">Washing Machine</div>
+        <div class="card">AC</div>
+    </div>
+</section>
+
+<!--FURNITURE -->
+<section id="homefurniture">
+    <h2>Home & Furniture</h2>
+    <div class="products">
+        <div class="card">Sofa</div>
+        <div class="card">Bed</div>
+        <div class="card">Dining Table</div>
+        <div class="card">Decor</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Feedback"></textarea>
+    <button>Submit</button>
+</section>
+
+<footer>
+    © 2026 myntra | Frontend Project
+</footer>
+
+<script>
+function show(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function login() {
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+    let msg = document.getElementById("msg");
+
+    if(u === "" || p === "") {
+        msg.innerHTML = "Please fill all fields";
+        msg.style.color = "red";
+    } else {
+        msg.innerHTML = "Login Successful";
+        msg.style.color = "green";
+    }
+}
+</script>
+
+</body>
+</html>
